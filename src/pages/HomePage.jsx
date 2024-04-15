@@ -35,7 +35,7 @@ if (countries.length === 0) {
           <div className="list-group" key={country._id}>
             
             
-            <Link className="list-group-item list-group-item-action" to={`/${country._id}`} name={country.name.official} onClick={() => handleCountrySelected(country)}>
+            <Link className="list-group-item list-group-item-action" to={`/${country.alpha3Code}`} name={country.name.official} onClick={() => handleCountrySelected(country)}>
               {country.name.common} 
               {console.log(country.alpha2Code.toLowerCase())}
               <img src={`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`} alt="" srcset="" />
