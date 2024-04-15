@@ -1,4 +1,4 @@
-import countriesJson from "../data/countries.json";
+
 import { Link } from "react-router-dom";
 
 function CountryDetails({ selectedCountry }) {
