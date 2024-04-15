@@ -1,25 +1,31 @@
-function CountryDetails() {
-    return(
-        
-         <>
-          <p>Country Details</p>
-          <div className="container">
-        <p style={{fontSize:"24px" , fontWeight: "bold"}}>Country Details</p>
+import countriesJson from "../data/countries.json";
+import { Link } from "react-router-dom";
 
-        <h1>France</h1>
+function CountryDetails({ selectedCountry }) {
+    console.log(selectedCountry.name.common)
+    const country = selectedCountry;
+
+    return(  
+        <>
+        <div>
+
+      
+      <div className="container">
+        <p style={{fontSize:'24px', fontWeight:'bold'}}>Country Details</p>
+
+        <h1>{country.name.common}</h1>
 
         <table className="table">
           <thead></thead>
           <tbody>
             <tr>
-              
-              <td style={{width: "30%"}}>Capital</td>
-              <td>Paris</td>
+              <td style={{width:'30%'}}>Capital</td>
+              <td>{country.capital}</td>
             </tr>
             <tr>
               <td>Area</td>
               <td>
-                551695 km
+                {country.area} Km
                 <sup>2</sup>
               </td>
             </tr>
@@ -27,27 +33,26 @@ function CountryDetails() {
               <td>Borders</td>
               <td>
                 <ul>
-                  <li><a href="/AND">Andorra</a></li>
-                  <li><a href="/BEL">Belgium</a></li>
-                  <li><a href="/DEU">Germany</a></li>
-                  <li><a href="/ITA">Italy</a></li>
-                  <li><a href="/LUX">Luxembourg</a></li>
-                  <li><a href="/MCO">Monaco</a></li>
-                  <li><a href="/ESP">Spain</a></li>
-                  <li><a href="/CHE">Switzerland</a></li>
+                    {country.borders.map((countryBorders) => <li><Link to="/AND">{countryBorders}</Link></li>
+                        
+                    )}
+                  
+                  
                 </ul>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-
-    </>
-         
-    )
+    </div>
+         </> )
     
    
     
-}
-
-export default CountryDetails;
+   
+    
+   
+    
+  }
+  
+export default CountryDetails
